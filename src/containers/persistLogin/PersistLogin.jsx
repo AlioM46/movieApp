@@ -1,38 +1,53 @@
+import usePersist from "../../hooks/usePersist";
 import React, {useEffect, useRef ,useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {Link, Outlet, useNavigate} from "react-router-dom";
 import Spinner from "../../components/spinner/Spinner.jsx";
 import {useRefreshMutation} from "../../features/auth/authApiSlice.js";
 import {setToken} from "../../features/auth/authSlice.js";
-import usePersist from "../../hooks/usePersist";
 const PersistLogin = () => {
-  const token = useSelector((state) => state.auth.token);
 
-  const dispatch = useDispatch();    const [trueSuccess, setTrueSuccess] = useState(false)
+  const [persist] = usePersist()
+  const token = useSelector((state) => state.auth.token)
+  const effectRan = useRef(false)
+const dispatch = useDispatch()
+  const [trueSuccess, setTrueSuccess] = useState(false)
 
-  const [persist] = usePersist();
-  const [refresh, {isLoading, isSuccess, isError, error,        isUninitialized,
-  }] =
-    useRefreshMutation();
-  const runOneTime = useRef(false);
+  const [refresh, {
+      isUninitialized,
+      isLoading,
+      isSuccess,
+      isError,
+      error
+  }] = useRefreshMutation()
+
 
   useEffect(() => {
-    if (runOneTime.current == true) {
-      const verifyRefreshToken = async () => {
-        try {
-          const accessToken = await refresh();
-          dispatch(setToken(accessToken.data.accessToken));
-          console.log("Token Refreshed")
-          setTrueSuccess(true)
-        } catch (err) {
-          console.error(err);
-        }
-      };
 
-      if (!token && persist) verifyRefreshToken();
-    }
-    return () => (runOneTime.current = true);
-  }, []);
+      if (effectRan.current === true || process.env.NODE_ENV !== 'development') { // React 18 Strict Mode
+
+          const verifyRefreshToken = async () => {
+              console.log('verifying refresh token')
+              try {
+          const response =        await refresh()
+                  
+                  const { accessToken } = response.data
+                  dispatch(setToken(accessToken.data.accessToken));
+                  setTrueSuccess(true)
+              }
+              catch (err) {
+                  console.error(err)
+              }
+          }
+
+          if (!token && persist) verifyRefreshToken()
+      }
+
+      return () => effectRan.current = true
+
+      // eslint-disable-next-line
+  }, [])
+
 
   let content
   if (!persist) { // persist: no
@@ -58,8 +73,6 @@ const PersistLogin = () => {
       content = <Outlet />
   }
 
-
-  return content;
-};
-
-export default PersistLogin;
+  return content
+}
+export default PersistLogin
