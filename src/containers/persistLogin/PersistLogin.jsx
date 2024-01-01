@@ -32,7 +32,7 @@ const dispatch = useDispatch()
           const response =        await refresh()
                   
                   const { accessToken } = response.data
-                  dispatch(setToken(accessToken.data.accessToken));
+                  dispatch(setToken(accessToken));
                   setTrueSuccess(true)
               }
               catch (err) {
