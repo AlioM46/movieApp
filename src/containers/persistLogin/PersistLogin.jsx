@@ -1,7 +1,6 @@
-import React, {useEffect, useRef} from "react";
+import React, {useEffect, useRef ,useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {Link, Outlet, useNavigate} from "react-router-dom";
-import ErrorElement from "../../components/ErrorElement/ErrorElement.jsx";
 import Spinner from "../../components/spinner/Spinner.jsx";
 import {useRefreshMutation} from "../../features/auth/authApiSlice.js";
 import {setToken} from "../../features/auth/authSlice.js";
@@ -9,12 +8,13 @@ import usePersist from "../../hooks/usePersist";
 const PersistLogin = () => {
   const token = useSelector((state) => state.auth.token);
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch();    const [trueSuccess, setTrueSuccess] = useState(false)
+
   const [persist] = usePersist();
-  const [refresh, {isLoading, isSuccess, isError, error}] =
+  const [refresh, {isLoading, isSuccess, isError, error,        isUninitialized,
+  }] =
     useRefreshMutation();
   const runOneTime = useRef(false);
-  const navigation = useNavigate();
 
   useEffect(() => {
     if (runOneTime.current == true) {
@@ -22,6 +22,8 @@ const PersistLogin = () => {
         try {
           const accessToken = await refresh();
           dispatch(setToken(accessToken.data.accessToken));
+          console.log("Token Refreshed")
+          setTrueSuccess(true)
         } catch (err) {
           console.error(err);
         }
@@ -32,21 +34,30 @@ const PersistLogin = () => {
     return () => (runOneTime.current = true);
   }, []);
 
-  let content;
-  if (!persist) {
-    content = <Outlet />;
-  } else if (isLoading) {
-    content = <Spinner />;
-  } else if (isError) {
-    content = (
-      <>
-        <ErrorElement error={error?.data?.message} />
-        <Outlet />
-      </>
-    );
-  } else if (isSuccess) {
-    content = <Outlet />;
+  let content
+  if (!persist) { // persist: no
+      console.log('no persist')
+      content = <Outlet />
+  } else if (isLoading) { //persist: yes, token: no
+      console.log('loading')
+      content = <Spinner color={"#FFF"} />
+  } else if (isError) { //persist: yes, token: no
+      console.log('error')
+      content = (
+          <p className='errmsg'>
+              {`${error?.data?.message} - `}
+              <Link to="/login">Please login again</Link>.
+          </p>
+      )
+  } else if (isSuccess && trueSuccess) { //persist: yes, token: yes
+      console.log('success')
+      content = <Outlet />
+  } else if (token && isUninitialized) { //persist: yes, token: yes
+      console.log('token and uninit')
+      console.log(isUninitialized)
+      content = <Outlet />
   }
+
 
   return content;
 };
