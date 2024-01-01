@@ -1,0 +1,59 @@
+.statistic {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.statistic > div {
+  border: var(--color-border) 1px solid;
+  flex: 1 1 200px;
+  display: flex;
+  align-items: center;
+  padding: 50px 25px;
+  border-radius: 5px;
+  height: 200px;
+}
+
+.statistic > div > p {
+  font-size: 40px;
+  margin-right: 30px;
+  padding: 10px;
+  border-radius: 5px;
+  color: white;
+}
+
+.statistic > div:nth-child(1) span {
+  color: firebrick;
+}
+.statistic > div:nth-child(2) span {
+  color: green;
+}
+.statistic > div:nth-child(3) span {
+  color: blue;
+}
+
+.statistic > div:nth-child(1) > p {
+  background-color: firebrick;
+}
+.statistic > div:nth-child(2) > p {
+  background-color: green;
+}
+.statistic > div:nth-child(3) > p {
+  background-color: blue;
+}
+
+.statistic > div > div {
+}
+
+.statistic > div > div p {
+  font-size: 20px;
+}
+
+.statistic > div > div span {
+  padding-top: 10px;
+  display: block;
+  font-size: 18px;
+  font-weight: bold;
+}

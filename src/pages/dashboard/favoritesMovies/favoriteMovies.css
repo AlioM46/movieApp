@@ -1,0 +1,29 @@
+.dashboard__favorites {
+  display: flex;
+  gap: 50px;
+  padding: 10px;
+  flex-wrap: wrap;
+}
+
+.dashboard__favorites > div {
+  flex: 1 1 340px;
+}
+
+.dashboard__favorites > div:hover {
+  transform: none;
+}
+
+.favoritesMovies__error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  flex-direction: column;
+}
+.favoritesMovies__error h1 {
+  font-size: 60px;
+}
+.favoritesMovies__error p {
+  color: red;
+  font-size: 28px;
+}

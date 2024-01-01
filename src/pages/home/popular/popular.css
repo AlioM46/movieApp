@@ -1,0 +1,30 @@
+.home__popular__title {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+  margin: 2rem 0;
+}
+.home__popular__title svg {
+  font-size: 28px;
+  color: var(--color-subtext);
+  font-weight: bold;
+}
+.home__popular__title h1 {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.home__popular__movies {
+  display: grid;
+  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  grid-auto-rows: 260px;
+  place-content: center;
+}
+
+@media (max-width: 550px) {
+  .home__popular__movies {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+}

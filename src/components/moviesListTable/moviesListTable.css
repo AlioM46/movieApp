@@ -1,0 +1,26 @@
+.moviesList__dashboard__tr img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 2px solid var(--color-border);
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  gap: 10px;
+}
+
+.dashboard__delete {
+  color: red;
+  cursor: pointer;
+  font-size: 24px;
+}
+.dashboard__visit {
+  color: green;
+  cursor: pointer;
+  font-size: 24px;
+}

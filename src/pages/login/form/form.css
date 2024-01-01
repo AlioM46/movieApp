@@ -1,0 +1,84 @@
+.login__form {
+  flex: 1;
+  background-color: var(--color-footer);
+  border: 1px solid var(--color-border);
+  padding: 30px 50px;
+  border-radius: 8px;
+}
+
+.login__form img {
+  max-width: 200px;
+  margin: 0 auto;
+}
+
+.login__form form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 30px;
+}
+.login__form form div {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 30px;
+}
+.login__form form div label {
+  color: var(--color-text);
+  font-size: 15px;
+}
+.login__form form div input {
+  padding: 15px 20px;
+  border-radius: 5px;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  font-size: 13.5px;
+  color: var(--color-text-white);
+}
+
+.login__form__cta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-size: 18px;
+  background: red;
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  color: white;
+}
+.login__form__cta svg {
+  font-size: 24px;
+}
+
+.login__form__toggle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 30px;
+}
+
+@media screen and (max-width: 550px) {
+  .login__form__toggle {
+    flex-direction: column;
+  }
+}
+
+.login__form__toggle button {
+  color: var(--color-subtext);
+  text-decoration: underline;
+}
+
+.login__persist {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  text-decoration: underline;
+}
+.login__persist input {
+  width: 20px;
+  height: 20px;
+}

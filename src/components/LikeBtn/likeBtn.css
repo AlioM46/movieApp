@@ -1,0 +1,12 @@
+.button__like {
+  min-width: 30px;
+  min-height: 30px;
+  padding: 10px;
+  border-radius: 5px;
+  background: red;
+  cursor: pointer;
+}
+
+.text {
+  width: 100px;
+}

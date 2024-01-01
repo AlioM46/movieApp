@@ -1,0 +1,42 @@
+.updateProfile__error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.updateProfile__error h1 {
+  font-size: 100px;
+}
+.updateProfile__error a {
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: underline;
+  color: red;
+}
+
+.updateProfile button {
+  border: 2px solid var(--color-border);
+  padding: 10px;
+  width: 100%;
+  margin-top: 20px;
+  transition: 0.3s;
+  font-weight: bold;
+}
+.updateProfile button:hover {
+  border: white 2px solid;
+  color: red;
+}
+
+.updateProfile button[disabled] {
+  background: red;
+  color: white;
+}
+.updateProfile form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.updateProfile img {
+  max-width: 400px;
+}

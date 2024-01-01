@@ -1,0 +1,3 @@
+;/*FB_PKG_DELIM*/
+
+__d("IGDAlertDialog.react",["fbt","IGDSActionDialog.react","IGDSDialogItem.react","react"],(function(a,b,c,d,e,f,g,h){"use strict";var i,j=i||d("react");function a(a){var b=a.body,e=a.close,f=a.onClose;a=a.title;return j.jsx(c("IGDSActionDialog.react"),{body:b,onModalClose:f,title:a,children:j.jsx(d("IGDSDialogItem.react").IGDSDialogItem,{onClick:f,children:e!=null?e:h._("__JHASH__tnRfHlva-bL__JHASH__")})})}a.displayName=a.name+" [from "+f.id+"]";g["default"]=a}),98);

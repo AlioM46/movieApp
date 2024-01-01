@@ -1,0 +1,46 @@
+.banner {
+  position: relative;
+  width: 100%;
+  background: red;
+  max-height: 300px;
+  overflow: hidden;
+}
+
+.banner img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.banner h3 {
+  font-size: 36px;
+  z-index: 22;
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+.banner__overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(
+    269.82deg,
+    #07091c00 0.17%,
+    #080a1ad6 99.87%
+  );
+  z-index: 20;
+}
+
+@media screen and (max-width: 768px) {
+  .banner h3 {
+    font-size: 26px;
+  }
+}

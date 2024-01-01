@@ -1,0 +1,158 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  background-color: var(--color-bg);
+  font-family: var(--font-family);
+  color: var(--color-text);
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+.section__padding {
+  padding: 4rem 0;
+}
+.section__margin {
+  margin: 4rem 0;
+}
+
+.container {
+  width: 100%;
+  padding: 0 2rem;
+  margin-inline: auto;
+}
+
+@media (max-width: 1560px) {
+  .container {
+    max-width: 1560px;
+  }
+}
+@media (max-width: 1220px) {
+  .container {
+    max-width: 1220px;
+  }
+  .section__padding {
+    padding: 3rem 0;
+  }
+  .section__margin {
+    margin: 3rem 0;
+  }
+}
+@media (max-width: 976px) {
+  .container {
+    max-width: 976px;
+  }
+  .section__padding {
+    padding: 2.5rem 0;
+  }
+  .section__margin {
+    margin: 2.5rem 0;
+  }
+}
+@media (max-width: 576px) {
+  .container {
+    max-width: 100%;
+    padding: 1rem;
+  }
+  .section__padding {
+    padding: 1.5rem 0;
+  }
+  .section__margin {
+    margin: 1.5rem 0;
+  }
+}
+
+.scale-up-center {
+  -webkit-animation: scale-up-center 0.4s cubic-bezier(0.39, 0.575, 0.565, 1)
+    both;
+  animation: scale-up-center 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+}
+
+@-webkit-keyframes scale-up-center {
+  0% {
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+@keyframes scale-up-center {
+  0% {
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+input:focus,
+input:hover,
+input,
+button,
+button:hover {
+  border: none;
+  outline: navajowhite;
+}
+
+.nav__parent {
+  background: var(--color-bg);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  display: grid;
+  z-index: 123;
+  place-items: center;
+  box-shadow: 5px 5px 50px rgba(255, 255, 255, 0.1);
+}
+
+.footer__container {
+  background: var(--color-footer);
+  width: 100%;
+}
+
+.navbar__margin {
+  margin-top: 120px;
+}
+
+@media screen and (max-width: 760px) {
+  .navbar__margin {
+    margin-top: 90px;
+  }
+}
+
+.login__error {
+  color: var(--color-subtext);
+  font-weight: bold;
+  display: block;
+  text-align: center;
+  text-decoration: underline;
+}
+
+label {
+  color: gray;
+}
+
+.abs__link {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}

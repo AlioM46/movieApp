@@ -1,0 +1,13 @@
+.dashboard__input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 clamp(300px, 50%, 500px);
+}
+
+.dashboard__input input {
+  padding: 15px;
+  background: var(--color-bg);
+  border: var(--color-border) 1px solid;
+  margin-top: 10px;
+  font-size: 14px;
+}

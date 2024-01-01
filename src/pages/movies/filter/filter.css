@@ -1,0 +1,51 @@
+.movies__filter {
+  display: grid;
+  gap: 80px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  background-color: var(--color-footer);
+  padding: 30px;
+  border: var(--color-border) 1px solid;
+  user-select: none;
+  border-radius: 5px;
+}
+
+.movies__filter div {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: var(--color-border) 1px solid;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.movies__filter div ul {
+  position: absolute;
+  left: 0;
+  top: 50px;
+  width: 100%;
+  background: #fff;
+  color: #000;
+  z-index: 12;
+  max-height: 300px;
+  overflow: scroll;
+}
+
+.movies__filter div ul li {
+  padding: 6px 20px;
+  font-size: 14px;
+  color: #3d3d3d;
+  cursor: pointer;
+}
+.movies__filter div ul li:hover {
+  background: var(--color-subtext);
+  color: white;
+}
+
+@media screen and (max-width: 768px) {
+  .movies__filter {
+    gap: 20px;
+  }
+}
